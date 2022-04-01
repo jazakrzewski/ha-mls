@@ -172,7 +172,7 @@ async def async_get_state(config) -> dict:
                 _LOGGER.debug("Kickoff In: %s" % (values["kickoff_in"]))
                 values["venue"] = event["competitions"][0]["venue"]["fullName"]
                 _LOGGER.debug("Venue: %s" % (values["venue"]))
-                values["location"] = "%s, %s" % (event["competitions"][0]["venue"]["address"]["city"], event["competitions"][0]["venue"]["address"]["state"])
+                values["location"] = event["competitions"][0]["venue"]["address"]["city"]
                 _LOGGER.debug("Location: %s" % (values["location"]))
                 try:
                     values["tv_network"] = event["competitions"][0]["broadcasts"][0]["names"][0]
