@@ -195,11 +195,13 @@ async def async_get_state(config) -> dict:
                 _LOGGER.debug("OverUnder: %s" % (values["overunder"]))
                 if event["status"]["type"]["state"].lower() in ['pre', 'post']: # could use status.completed == true as well
                     values["last_play"] = None
-                    values["inning"] = None
+                    values["half"] = None
+                    values["clock"] = None
                     values["team_win_probability"] = None
                     values["opponent_win_probability"] = None
                 else:
-                    values["inning"] = event["status"]["period"]
+                    values["half"] = event["status"]["period"]
+                    values["clock"] = event["status"]["displayClock"]
                     values["last_play"] = event["competitions"][0]["situation"]["lastPlay"]["text"]
                     if event["competitions"][0]["competitors"][team_index]["homeAway"] == "home":
                         try:
@@ -292,7 +294,8 @@ async def async_clear_states(config) -> dict:
     values = {
         "date": None,
         "kickoff_in": None,
-        "inning": None,
+        "half": None,
+        "clock": None,
         "venue": None,
         "location": None,
         "tv_network": None,

@@ -76,7 +76,8 @@ class MLSScoresSensor(CoordinatorEntity):
         self._state = "PRE"
         self._date = None
         self._kickoff_in = None
-        self._inning = None
+        self._half = None
+        self._clock = None
         self._venue = None
         self._location = None
         self._tv_network = None
@@ -143,7 +144,8 @@ class MLSScoresSensor(CoordinatorEntity):
         attrs[ATTR_ATTRIBUTION] = ATTRIBUTION
         attrs["date"] = self.coordinator.data["date"]
         attrs["kickoff_in"] = self.coordinator.data["kickoff_in"]
-        attrs["inning"] = self.coordinator.data["inning"]
+        attrs["half"] = self.coordinator.data["half"]
+        attrs["clock"] = self.coordinator.data["clock"]
         attrs["venue"] = self.coordinator.data["venue"]
         attrs["location"] = self.coordinator.data["location"]
         attrs["tv_network"] = self.coordinator.data["tv_network"]
