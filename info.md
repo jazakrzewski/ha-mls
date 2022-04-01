@@ -1,4 +1,4 @@
-# MLB Score API
+# MLS Score API
 
 Beta version in testing
 

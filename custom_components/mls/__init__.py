@@ -1,4 +1,4 @@
-""" MLB Team Status """
+""" MLS Team Status """
 import logging
 from datetime import timedelta
 import arrow
@@ -35,7 +35,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Load the saved entities."""
     # Print startup message
     _LOGGER.info(
-        "MLB version %s is starting, if you have any issues please report them here: %s",
+        "MLS version %s is starting, if you have any issues please report them here: %s",
         VERSION,
         ISSUE_URL,
     )
@@ -103,7 +103,7 @@ async def async_migrate_entry(hass, config_entry):
      return True
 
 class AlertsDataUpdateCoordinator(DataUpdateCoordinator):
-    """Class to manage fetching MLB data."""
+    """Class to manage fetching MLS data."""
 
     def __init__(self, hass, config, the_timeout: int):
         """Initialize."""
@@ -196,24 +196,10 @@ async def async_get_state(config) -> dict:
                 if event["status"]["type"]["state"].lower() in ['pre', 'post']: # could use status.completed == true as well
                     values["last_play"] = None
                     values["inning"] = None
-                    values["inning_detail"] = None
-                    values["balls"] = None
-                    values["strikes"] = None
-                    values["outs"] = None
-                    values["on_first"] = None
-                    values["on_second"] = None
-                    values["on_third"] = None
                     values["team_win_probability"] = None
                     values["opponent_win_probability"] = None
                 else:
                     values["inning"] = event["status"]["period"]
-                    values["inning_detail"] = event["status"]["type"]["detail"]
-                    values["balls"] = event["competitions"][0]["situation"]["balls"]
-                    values["strikes"] = event["competitions"][0]["situation"]["strikes"]
-                    values["outs"] = event["competitions"][0]["situation"]["outs"]
-                    values["on_first"] = event["competitions"][0]["situation"]["onFirst"]
-                    values["on_second"] = event["competitions"][0]["situation"]["onSecond"]
-                    values["on_third"] = event["competitions"][0]["situation"]["onThird"]
                     values["last_play"] = event["competitions"][0]["situation"]["lastPlay"]["text"]
                     if event["competitions"][0]["competitors"][team_index]["homeAway"] == "home":
                         try:
@@ -307,13 +293,6 @@ async def async_clear_states(config) -> dict:
         "date": None,
         "kickoff_in": None,
         "inning": None,
-        "inning_detail": None,
-        "balls" : None,
-        "strikes" : None,
-        "outs" : None,
-        "on_first" : None,
-        "on_second" : None,
-        "on_third" : None,
         "venue": None,
         "location": None,
         "tv_network": None,

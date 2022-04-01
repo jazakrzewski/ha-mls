@@ -1,9 +1,9 @@
 {
-    "domain": "mlb",
-    "name": "MLB",
+    "domain": "mls",
+    "name": "MLS",
     "version": "0.1",
-    "documentation": "https://github.com/jazakrzewski/ha-mlb",
-    "issue_tracker": "https://github.com/jazakrzewski/ha-mlb/issues",
+    "documentation": "https://github.com/jazakrzewski/ha-mls",
+    "issue_tracker": "https://github.com/jazakrzewski/ha-mls/issues",
     "dependencies": [],
     "codeowners": ["@jazakrzewski"],
     "config_flow": true,
