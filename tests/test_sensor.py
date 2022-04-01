@@ -1,7 +1,7 @@
-"""Test NCAAF Sensor"""
+"""Test MLS Sensor"""
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.ncaaf.const import DOMAIN
+from custom_components.mls.const import DOMAIN
 from tests.const import CONFIG_DATA
 
 
@@ -9,7 +9,7 @@ async def test_sensor(hass):
 
     entry = MockConfigEntry(
         domain=DOMAIN,
-        title="NCAAF",
+        title="MLS",
         data=CONFIG_DATA,
     )
 
@@ -17,4 +17,4 @@ async def test_sensor(hass):
     assert await hass.config_entries.async_setup(entry.entry_id)
     await hass.async_block_till_done()
 
-    assert "ncaaf" in hass.config.components
+    assert "mls" in hass.config.components
