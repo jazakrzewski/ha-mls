@@ -8,7 +8,7 @@
           "timeout": "Update Timeout (in seconds)"
         },
         "description": "You can find your 2 or 3-letter acronym on the ESPN MLS page's banner, at the top score strip.",
-        "title": "MLS"
+        "title": "MLS Configuration"
       }
     }
   },
@@ -21,7 +21,7 @@
           "timeout": "Update Timeout (in seconds)"
         },
         "description": "You can find your 2 or 3-letter acronym on the ESPN MLS page's banner, at the top score strip.",
-        "title": "MLS"
+        "title": "MLS Configuration"
       }
     }
   }
